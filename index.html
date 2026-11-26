@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:," />
+<title>中古車検索のご案内｜ホンダカーズ岩手 津志田店</title>
+<style>
+  :root{
+    --navy:#0b2a5b;
+    --navy-2:#123a7a;
+    --navy-soft:#eaf0fa;
+    --bg:#ffffff;
+    --surface:#ffffff;
+    --surface-2:#f5f7fb;
+    --text:#1a2332;
+    --muted:#4b5a72;
+    --line:#d9e1ee;
+    --accent:#c8102e;
+    --gold:#b9975b;
+    --radius:14px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --navy:#8fb0e8;
+      --navy-2:#a8c2f0;
+      --navy-soft:#1a2b4a;
+      --bg:#0e1626;
+      --surface:#16233c;
+      --surface-2:#1a2b4a;
+      --text:#eef2f8;
+      --muted:#a9b8d0;
+      --line:#2a3d5f;
+      --accent:#ff6b81;
+    }
+  }
+  *{box-sizing:border-box}
+  html{ -webkit-text-size-adjust:100%; }
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic UI","Yu Gothic",Meiryo,"Noto Sans JP",system-ui,-apple-system,sans-serif;
+    font-size:18px;
+    line-height:1.7;
+    line-break:strict;
+  }
+  /* 日本語の折り返し制御：文中の <wbr> を置いた文節の切れ目でだけ改行し、
+     単語の途中や助詞の前後など不自然な位置では折り返さない。
+     万一ひとつの文節が行幅を超える場合だけ、最後の手段として折る。 */
+  .hero p, .merit-note, .merit-band .merit-main, .merit-band .merit-sub,
+  .cta-note, .sec-head h2,
+  .step h3, .step p,
+  .points h3, .points p, .points-note,
+  .acc-btn .acc-label, .detail-list li,
+  .bottom-cta p{
+    word-break:keep-all;
+    overflow-wrap:break-word;
+  }
+  .sec-head h2, .step h3, .points h3{ text-wrap:balance; }
+  a{ -webkit-tap-highlight-color:transparent; }
+
+  .wrap{ max-width:680px; margin:0 auto; padding:0 18px 0; }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background:var(--navy);
+    color:#fff;
+    margin:0 -18px;
+    padding:28px 22px 26px;
+  }
+  @media (prefers-color-scheme: dark){
+    .hero{ background:#132a52; }
+  }
+  .hero-label{
+    display:inline-block;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.08em;
+    border:1px solid rgba(255,255,255,.55);
+    border-radius:999px;
+    padding:4px 12px;
+    margin-bottom:14px;
+  }
+  .hero h1{
+    margin:0;
+    font-size:32px;
+    line-height:1.25;
+    font-weight:800;
+    letter-spacing:.01em;
+  }
+  .hero h1 .accent{ color:#ffd84d; white-space:nowrap; }
+  @media (min-width:560px){ .hero h1{ font-size:38px; } }
+  .hero p{
+    margin:14px 0 0;
+    font-size:18px;
+    line-height:1.7;
+    color:rgba(255,255,255,.92);
+  }
+  .merit-band{
+    margin-top:18px;
+    background:#ffd84d;
+    color:#0b2a5b;
+    border-radius:10px;
+    padding:16px 18px;
+    text-align:center;
+    box-shadow:0 4px 14px rgba(0,0,0,.18);
+  }
+  .merit-band .merit-main{
+    font-size:22px;
+    font-weight:800;
+    line-height:1.4;
+    letter-spacing:.01em;
+  }
+  .merit-band .merit-sub{
+    font-size:18px;
+    font-weight:700;
+    line-height:1.5;
+    margin-top:4px;
+  }
+  @media (min-width:560px){ .merit-band .merit-main{ font-size:24px; } }
+  .merit-note{
+    margin:10px 2px 0;
+    font-size:14px;
+    line-height:1.6;
+    color:rgba(255,255,255,.88);
+    text-align:center;
+  }
+  .pref{
+    display:flex; flex-wrap:wrap; gap:8px;
+    margin-top:18px;
+  }
+  .pref span{
+    background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.28);
+    border-radius:999px;
+    padding:6px 13px;
+    font-size:15px;
+    font-weight:700;
+    line-height:1.2;
+  }
+
+  /* ---------- CTA ---------- */
+  .cta-block{ padding:26px 0 6px; }
+  .cta{
+    display:flex; align-items:center; justify-content:center; gap:10px;
+    width:100%;
+    min-height:72px;
+    padding:18px 16px;
+    background:var(--navy);
+    color:#fff !important;
+    text-decoration:none;
+    font-size:23px;
+    font-weight:800;
+    letter-spacing:.02em;
+    border-radius:var(--radius);
+    box-shadow:0 6px 18px rgba(11,42,91,.22);
+    text-align:center;
+  }
+  .cta:active{ transform:translateY(1px); }
+  .cta svg{ flex:0 0 auto; }
+  .cta-note{
+    margin:12px 2px 0;
+    text-align:center;
+    font-size:18px;
+    color:var(--muted);
+  }
+  .cta-note strong{ color:var(--text); font-weight:700; }
+  .direct-link{
+    margin:14px 2px 0;
+    text-align:center;
+    font-size:17px;
+    line-height:1.6;
+  }
+  .direct-link a{
+    color:var(--navy);
+    font-weight:700;
+    text-decoration:underline;
+    text-underline-offset:3px;
+    padding:10px 6px;
+    display:inline-block;
+  }
+
+  /* ---------- Sections ---------- */
+  section{ padding:30px 0 4px; }
+  .sec-head{ display:flex; align-items:baseline; gap:10px; margin-bottom:16px; }
+  .sec-head h2{
+    margin:0; font-size:22px; font-weight:800; line-height:1.3;
+  }
+  .sec-head .no{
+    font-size:13px; font-weight:800; letter-spacing:.1em;
+    color:var(--navy); background:var(--navy-soft);
+    border-radius:6px; padding:3px 8px; white-space:nowrap;
+  }
+
+  /* Steps */
+  .steps{ list-style:none; margin:0; padding:0; display:grid; gap:14px; }
+  .step{
+    display:flex; gap:16px;
+    background:var(--surface-2);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:18px 16px;
+  }
+  .step-badge{
+    flex:0 0 auto;
+    width:52px; height:52px;
+    border-radius:50%;
+    background:var(--navy); color:#fff;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    line-height:1;
+  }
+  @media (prefers-color-scheme: dark){ .step-badge{ background:#2a4a82; } }
+  .step-badge small{ font-size:9px; letter-spacing:.12em; font-weight:700; opacity:.85; }
+  .step-badge b{ font-size:22px; font-weight:800; margin-top:2px; }
+  .step h3{ margin:2px 0 4px; font-size:19px; font-weight:800; line-height:1.35; }
+  .step p{ margin:0; font-size:18px; color:var(--muted); line-height:1.7; }
+  .step p strong{ color:var(--text); }
+
+  /* U-Select */
+  .uselect{
+    border:1.5px solid var(--navy);
+    border-radius:16px;
+    overflow:hidden;
+    background:var(--surface);
+  }
+  .uselect-head{
+    background:var(--navy); color:#fff;
+    padding:16px 18px;
+  }
+  @media (prefers-color-scheme: dark){ .uselect-head{ background:#132a52; } }
+  .uselect-head .brand{ font-size:13px; letter-spacing:.06em; opacity:.85; font-weight:700; }
+  .uselect-head .title{ font-size:24px; font-weight:800; line-height:1.25; margin-top:2px; }
+  .uselect-head .title span{ font-size:17px; font-weight:700; }
+  .points{ list-style:none; margin:0; padding:8px 18px 14px; }
+  .points li{
+    display:flex; gap:12px;
+    padding:14px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .points li:last-child{ border-bottom:none; }
+  .check{
+    flex:0 0 auto;
+    width:28px; height:28px; margin-top:2px;
+    border-radius:50%;
+    background:var(--navy-soft);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .points h3{ margin:0; font-size:18px; font-weight:800; line-height:1.4; }
+  .points p{ margin:4px 0 0; font-size:18px; color:var(--muted); line-height:1.7; }
+  .points-note{
+    margin:0;
+    padding:2px 18px 16px;
+    font-size:15px;
+    line-height:1.65;
+    color:var(--muted);
+  }
+  .guarantee{
+    display:grid; grid-template-columns:1fr 1fr; gap:10px;
+    margin:2px 18px 18px;
+  }
+  .g-card{
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:12px 10px;
+    text-align:center;
+    background:var(--surface-2);
+  }
+  .g-card .g-name{ font-size:14px; font-weight:800; line-height:1.3; }
+  .g-card .g-years{ font-size:26px; font-weight:800; color:var(--navy); line-height:1.2; margin-top:2px; }
+  .g-card .g-years small{ font-size:15px; }
+  .g-card .g-sub{ font-size:13px; color:var(--muted); margin-top:2px; }
+
+  /* Accordion details */
+  .accordions{ padding:0 18px 18px; display:grid; gap:12px; }
+  .acc{
+    border:1px solid var(--line);
+    border-radius:12px;
+    overflow:hidden;
+    background:var(--surface);
+  }
+  .acc-btn{
+    width:100%;
+    min-height:76px;
+    padding:18px 16px;
+    display:flex; align-items:center; justify-content:space-between; gap:14px;
+    background:var(--navy-soft);
+    color:var(--text);
+    border:0;
+    font:inherit;
+    font-size:21px;
+    font-weight:800;
+    line-height:1.35;
+    text-align:left;
+    cursor:pointer;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .acc-btn:active{ opacity:.88; }
+  .acc-btn:focus-visible{ outline:3px solid var(--accent); outline-offset:-3px; }
+  .acc-btn .acc-label{ display:flex; align-items:center; gap:10px; }
+  .acc-btn .acc-sub{
+    display:block;
+    font-size:18px;
+    font-weight:700;
+    color:var(--muted);
+    margin-top:2px;
+    line-height:1.4;
+  }
+  .acc-chevron{
+    flex:0 0 auto;
+    width:40px; height:40px;
+    border-radius:50%;
+    background:var(--navy);
+    display:flex; align-items:center; justify-content:center;
+    transition:transform .35s ease;
+  }
+  @media (prefers-color-scheme: dark){ .acc-chevron{ background:#2a4a82; } }
+  .acc-btn[aria-expanded="true"] .acc-chevron{ transform:rotate(180deg); }
+  .acc-panel{
+    display:grid;
+    grid-template-rows:0fr;
+    transition:grid-template-rows .38s ease;
+  }
+  .acc-panel.open{ grid-template-rows:1fr; }
+  .acc-panel-inner{ overflow:hidden; min-height:0; }
+  .acc-body{ padding:6px 18px 10px; }
+  .detail-list{ list-style:none; margin:0; padding:0; }
+  .detail-list li{
+    padding:14px 0;
+    border-bottom:1px solid var(--line);
+    font-size:18px;
+    line-height:1.7;
+    color:var(--muted);
+  }
+  .detail-list li:last-child{ border-bottom:none; }
+  .detail-list .d-title{
+    display:block;
+    font-size:18px;
+    font-weight:800;
+    line-height:1.45;
+    color:var(--text);
+    margin-bottom:4px;
+  }
+  .detail-list p{ margin:0; font-size:18px; line-height:1.7; }
+  .detail-list .d-note{ color:var(--muted); }
+  .detail-list p + p.d-note{ margin-top:8px; }
+  .detail-list strong{ color:var(--text); }
+  @media (prefers-reduced-motion: reduce){
+    .acc-panel, .acc-chevron{ transition:none; }
+  }
+
+  /* Bottom CTA */
+  .bottom-cta{ padding:28px 0 8px; }
+  .bottom-cta p{ text-align:center; margin:0 0 12px; font-size:18px; color:var(--muted); }
+
+  /* Footer */
+  footer{
+    margin-top:34px;
+    border-top:1px solid var(--line);
+    padding:22px 0 36px;
+    text-align:center;
+  }
+  footer .store{ font-size:19px; font-weight:800; letter-spacing:.02em; }
+  footer .store-sub{ font-size:14px; color:var(--muted); margin-top:4px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Hero -->
+  <div class="hero">
+    <span class="hero-label">Honda 認定中古車 U-Select</span>
+    <h1>豊富な中古車を<br><span class="accent">Web検索！</span></h1>
+    <div class="merit-band">
+      <div class="merit-main">気になるお車は<br><strong>津志田店に<wbr>お取り寄せ</strong><wbr>いただけます</div>
+      <div class="merit-sub">東北6県の<wbr>在庫から、<wbr>津志田店で<wbr>ご覧いただけます</div>
+    </div>
+    <p class="merit-note">※お取り寄せには<wbr>別途<wbr>配送費用が<wbr>かかります</p>
+    <p>東北6県の<wbr>ネットワークから<wbr>探せます。</p>
+    <div class="pref" aria-label="対象エリア 東北6県">
+      <span>宮城県</span><span>山形県</span><span>福島県</span><span>岩手県</span><span>秋田県</span><span>青森県</span>
+    </div>
+  </div>
+
+  <!-- Main CTA -->
+  <div class="cta-block">
+    <a class="cta" href="https://www.hondamobility-tohoku.co.jp/usedcar/">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="#fff" stroke-width="2.4"/><path d="M20 20l-3.8-3.8" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg>
+      中古車在庫を探す
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <p class="cta-note"><strong>車種から探す</strong>・<strong>価格や年式などの<wbr>条件</strong>から<wbr>探せます<br>（ホンダモビリティ東北の<wbr>中古車検索サイトが<wbr>開きます）</p>
+    <p class="direct-link"><a href="https://www.hondamobility-tohoku.co.jp/usedcar/">中古車検索サイトを<wbr>直接開く場合は<wbr>こちら</a></p>
+  </div>
+
+  <!-- Steps -->
+  <section aria-labelledby="steps-title">
+    <div class="sec-head">
+      <span class="no">HOW TO</span>
+      <h2 id="steps-title">探し方は<wbr>かんたん<wbr>3ステップ</h2>
+    </div>
+    <ol class="steps">
+      <li class="step">
+        <div class="step-badge"><small>STEP</small><b>1</b></div>
+        <div>
+          <h3>このページの<wbr>ボタンを<wbr>押す</h3>
+          <p>上の<wbr>「中古車在庫を探す」<wbr>ボタンを<wbr>押すと、<wbr>中古車検索サイトが<wbr>開きます。</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-badge"><small>STEP</small><b>2</b></div>
+        <div>
+          <h3>Webで探す</h3>
+          <p>車種・価格・年式など、<wbr><strong>ご希望の条件</strong>で<wbr>気になる<wbr>1台を<wbr>見つけてください。</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-badge"><small>STEP</small><b>3</b></div>
+        <div>
+          <h3>気になる<wbr>お車の<wbr>画面を<wbr>スタッフに<wbr>見せる</h3>
+          <p>見つけた<wbr>お車の<wbr>画面を、<wbr>そのまま<wbr><strong>スタッフへお見せください</strong>。<wbr>他の<wbr>お店の<wbr>在庫も<wbr>津志田店に<wbr>お取り寄せいただけます。</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- U-Select -->
+  <section aria-labelledby="uselect-title">
+    <div class="sec-head">
+      <span class="no">U-Select</span>
+      <h2 id="uselect-title">Honda認定中古車 <wbr>U-Select<wbr>（認定車）は<wbr>安心の<wbr>3ポイント</h2>
+    </div>
+    <div class="uselect">
+      <div class="uselect-head">
+        <div class="brand">Honda 認定中古車</div>
+        <div class="title">U-Select <span>ユーセレクト</span></div>
+      </div>
+      <ul class="points">
+        <li>
+          <span class="check"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5" stroke="#0b2a5b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div>
+            <h3>修復歴のない<wbr>Honda車だけ</h3>
+            <p>取り扱うのは、<wbr>修復歴のない<wbr>Honda車のみ。<wbr>安心して<wbr>お選びいただけます。</p>
+          </div>
+        </li>
+        <li>
+          <span class="check"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5" stroke="#0b2a5b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div>
+            <h3>車両状態<wbr>証明書つき</h3>
+            <p>専門の<wbr>第三者機関が<wbr>車両の<wbr>状態を<wbr>チェックし、<wbr>証明書を<wbr>発行しています。</p>
+          </div>
+        </li>
+        <li>
+          <span class="check"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5" stroke="#0b2a5b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div>
+            <h3>走行距離<wbr>無制限の<wbr>無料保証</h3>
+            <p>期間中は<wbr>走行距離に<wbr>制限なく<wbr>保証。<wbr>グレードにより<wbr>期間が<wbr>異なります。</p>
+          </div>
+        </li>
+      </ul>
+      <p class="points-note">※保証の<wbr>期間・対象は<wbr>お車により<wbr>異なります<wbr>（車両本体価格が<wbr>税込40万円未満の<wbr>お車は、<wbr>無料保証が<wbr>3か月となります）</p>
+      <div class="guarantee">
+        <div class="g-card">
+          <div class="g-name">U-Select</div>
+          <div class="g-years">1<small>年間</small></div>
+          <div class="g-sub">無料保証</div>
+        </div>
+        <div class="g-card">
+          <div class="g-name">U-Select Premium</div>
+          <div class="g-years">2<small>年間</small></div>
+          <div class="g-sub">無料保証</div>
+        </div>
+      </div>
+
+      <div class="accordions">
+        <!-- Detail 1: Warranty -->
+        <div class="acc">
+          <h3 style="margin:0">
+            <button class="acc-btn" type="button" aria-expanded="false" aria-controls="acc-warranty" id="acc-warranty-btn">
+              <span class="acc-label"><span>保証の<wbr>くわしい<wbr>内容<span class="acc-sub">＋ くわしく見る</span></span></span>
+              <span class="acc-chevron" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </button>
+          </h3>
+          <div class="acc-panel" id="acc-warranty" role="region" aria-labelledby="acc-warranty-btn">
+            <div class="acc-panel-inner">
+              <div class="acc-body">
+                <ul class="detail-list">
+                  <li>
+                    <span class="d-title">無料保証「ホッと保証」</span>
+                    <p>U-Selectは<wbr><strong>1年間</strong>、<wbr>U-Select Premiumは<wbr><strong>2年間</strong>です。<wbr>どちらも<wbr><strong>走行距離は無制限</strong>で、<wbr>納車した<wbr>日から<wbr>始まります。</p>
+                  </li>
+                  <li>
+                    <p class="d-note">※車両本体価格が<wbr>税込40万円未満の<wbr>お車は、<wbr>無料保証が<wbr>3か月となります。</p>
+                  </li>
+                  <li>
+                    <span class="d-title">保証の対象</span>
+                    <p>エンジンや<wbr>ブレーキなどの<wbr>大切な部分から、<wbr>オーディオや<wbr>カーナビまで、<wbr>幅広い<wbr>部品が<wbr>対象です。</p>
+                    <p class="d-note">※タイヤや<wbr>オイルなどの<wbr>消耗品と、<wbr>内外装の<wbr>部品は<wbr>対象外です</p>
+                  </li>
+                  <li>
+                    <span class="d-title">もしものときの修理</span>
+                    <p>修理は<wbr><strong>全国のHonda Cars</strong>で<wbr>受けられます。<wbr>まずは<wbr>ご購入の<wbr>お店に<wbr>ご連絡ください。</p>
+                  </li>
+                  <li>
+                    <span class="d-title">延長保証<wbr>「ホッと保証プラス」<wbr>（有料）</span>
+                    <p>ご購入の<wbr>ときだけ<wbr>加入できます。<wbr>無料保証と<wbr>合わせて<wbr><strong>最長5年</strong>まで<wbr>延ばせます。<wbr>料金は<wbr>年式や<wbr>排気量で<wbr>変わります<wbr>（1日あたり<wbr>約60円〜）。<wbr>加入すると、<wbr>6か月点検が<wbr>無料になります。</p>
+                  </li>
+                  <li>
+                    <span class="d-title">ハイブリッド車の保証</span>
+                    <p>Premiumは<wbr>無料保証だけで<wbr>ハイブリッド機構の<wbr>保証が<wbr>付きます。<wbr>U-Selectは<wbr>延長保証に<wbr>入ると<wbr>付きます。<wbr>期間は<wbr>初度登録から<wbr>10年目までです。</p>
+                  </li>
+                  <li>
+                    <p>納車の<wbr>ときには、<wbr><strong>保証書と車両状態証明書</strong>を<wbr>お渡しします。</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Detail 2: Inspection & certificate -->
+        <div class="acc">
+          <h3 style="margin:0">
+            <button class="acc-btn" type="button" aria-expanded="false" aria-controls="acc-inspection" id="acc-inspection-btn">
+              <span class="acc-label"><span>点検と<wbr>証明書の<wbr>くわしい<wbr>内容<span class="acc-sub">＋ くわしく見る</span></span></span>
+              <span class="acc-chevron" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </button>
+          </h3>
+          <div class="acc-panel" id="acc-inspection" role="region" aria-labelledby="acc-inspection-btn">
+            <div class="acc-panel-inner">
+              <div class="acc-body">
+                <ul class="detail-list">
+                  <li>
+                    <span class="d-title">納車前点検は最大104項目</span>
+                    <p>納車前には<wbr>最大<strong>104項目</strong>の<wbr>点検・整備・確認を<wbr>します。<wbr>基本点検57項目、<wbr>Honda独自の<wbr>プラスアルファ点検・<wbr>納車前確認38項目、<wbr>部品交換9項目です。</p>
+                  </li>
+                  <li>
+                    <span class="d-title">交換する部品の例</span>
+                    <p>エンジンオイル、<wbr>オイルフィルター、<wbr>ワイパーブレード、<wbr>バッテリーなどです。</p>
+                    <p class="d-note">※点検の<wbr>結果によって<wbr>交換しない<wbr>部品もあります</p>
+                  </li>
+                  <li>
+                    <span class="d-title">車両状態証明書について</span>
+                    <p>JAAI（日本自動車査定協会）・<wbr>AIS・<wbr>JAAA（日本自動車鑑定協会）の<wbr>いずれか<wbr>（中古車の<wbr>状態を<wbr>調べる<wbr>専門機関）の<wbr>第三者機関が<wbr>検査した<wbr>結果です。</p>
+                  </li>
+                  <li>
+                    <span class="d-title">U-Select Premiumの条件</span>
+                    <p>年式5年未満・<wbr>走行距離5万km未満・<wbr>車両状態証明書の<wbr>評価点4点以上の<wbr>お車です。</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <div class="bottom-cta">
+    <p>気になる<wbr>お車が<wbr>見つかったら、<br>お気軽に<wbr>スタッフへ<wbr>お声がけください。</p>
+    <a class="cta" href="https://www.hondamobility-tohoku.co.jp/usedcar/">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="#fff" stroke-width="2.4"/><path d="M20 20l-3.8-3.8" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg>
+      中古車在庫を探す
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <p class="direct-link"><a href="https://www.hondamobility-tohoku.co.jp/usedcar/">中古車検索サイトを<wbr>直接開く場合は<wbr>こちら</a></p>
+  </div>
+
+  <footer>
+    <div class="store">ホンダカーズ岩手 津志田店</div>
+    <div class="store-sub">Honda Cars Iwate</div>
+  </footer>
+
+</div>
+<script>
+(function(){
+  var buttons = document.querySelectorAll('.acc-btn');
+  buttons.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var expanded = btn.getAttribute('aria-expanded') === 'true';
+      var panel = document.getElementById(btn.getAttribute('aria-controls'));
+      btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+      if(panel){ panel.classList.toggle('open', !expanded); }
+      var sub = btn.querySelector('.acc-sub');
+      if(sub){ sub.textContent = expanded ? '＋ くわしく見る' : '− 閉じる'; }
+    });
+  });
+})();
+</script>
+</body>
+</html>
